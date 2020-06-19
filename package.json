@@ -1,0 +1,44 @@
+{
+  "name": "ripple-lib-starter",
+  "version": "0.0.2",
+  "description": "ripple-lib starter project",
+  "files": [
+    "dist/*",
+    "build/*"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "ISC",
+  "dependencies": {
+    "ripple-lib": "^1.6.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ripple/ripple-lib-starter.git"
+  },
+  "prepublish": "tsc",
+  "prepublishOnly": "eslint . --ext .ts && jest",
+  "scripts": {
+    "compile": "tsc",
+    "lint": "eslint . --ext .ts",
+    "test": "jest",
+    "coverage": "jest --collect-coverage"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.1.0",
+    "@types/node": "^13.1.8",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^25.2.4",
+    "prettier": "^1.19.1",
+    "ts-jest": "^25.3.0",
+    "typescript": "^3.7.4"
+  },
+  "engines": {
+    "node": ">= 10"
+  }
+}
