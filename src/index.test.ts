@@ -1,6 +1,6 @@
 import { isValidPayId } from './index'
 
-test(`isValidPayId - invalid PayID`, async () => {
+test(`isValidPayId - invalid PayID`, () => {
   // GIVEN an invalid PayID
   const invalidPayID = 'xpring.money/georgewashington' // Does not start with '$'
 

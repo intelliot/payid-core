@@ -12,9 +12,9 @@ export interface PayIdComponents {
  * @returns the PayIdComponents if the PayID is syntactically valid, otherwise `undefined`
  */
 export function parsePayId(payId: string): PayIdComponents | undefined {
-
-  // Ensure `payId` contains only ASCII characters
-  if (/^[\x00-\x7F]+$/u.test(payId) === false) {
+  // Ensure `payId` contains only printable ASCII characters
+  // @see https://catonmat.net/my-favorite-regex
+  if (/^[ -~]+$/.test(payId) === false) {
     return undefined
   }
 
@@ -34,7 +34,7 @@ export function parsePayId(payId: string): PayIdComponents | undefined {
 
   return {
     host,
-    path: `/${path}`
+    path: `/${path}`,
   }
 }
 
@@ -59,7 +59,14 @@ export function isValidPayId(payId: string): boolean {
  *
  * @see https://payid.org/whitepaper.pdf
  */
-export type PaymentNetwork = XRPLPaymentNetwork | BTCPaymentNetwork | ETHPaymentNetwork | ILPPaymentNetwork | 'ach' | 'payid' | string
+export type PaymentNetwork =
+  | XRPLPaymentNetwork
+  | BTCPaymentNetwork
+  | ETHPaymentNetwork
+  | ILPPaymentNetwork
+  | 'ach'
+  | 'payid'
+  | string
 
 export type XRPLPaymentNetwork = 'xrpl-testnet' | 'xrpl-devnet' | 'xrpl-mainnet'
 
@@ -69,12 +76,6 @@ export type ETHPaymentNetwork = 'eth-rinkeby' | 'eth-ropsten' | 'eth-mainnet'
 
 export type ILPPaymentNetwork = 'interledger-mainnet' | 'interledger-testnet'
 
-// TODO
-export interface AddressDetails {
-  address: string
-  tag?: string // required if set. In other words, the sender MUST use this as the payment's destination tag
-}
-
 export interface PaymentInformation {
   addressDetailsType: AddressDetailsType
   addressDetails: CryptoAddressDetails | AchAddressDetails
@@ -83,11 +84,14 @@ export interface PaymentInformation {
   memo?: string
 }
 
-export type AddressDetailsType = 'CryptoAddressDetails' | 'AchAddressDetails' | string
+export type AddressDetailsType =
+  | 'CryptoAddressDetails'
+  | 'AchAddressDetails'
+  | string
 
 export interface CryptoAddressDetails {
   address: string
-  tag?: string
+  tag?: string // required if set. In other words, the sender MUST use this as the payment's destination tag
 }
 
 export interface AchAddressDetails {
@@ -116,27 +120,32 @@ export interface ResolvePayIdOptions {
  * @param options.network The network to retrieve an address for
  * @param options.useInsecureHttp If `true`, `http` will be used. Use for testing purposes only. Defaults to `false`
  */
-export async function resolvePayId(payId: string, options: ResolvePayIdOptions = {network: 'payid'}): Promise<PaymentInformation & OptionalInsecureFlag> {
+export async function resolvePayId(
+  payId: string,
+  options: ResolvePayIdOptions = { network: 'payid' },
+): Promise<PaymentInformation & OptionalInsecureFlag> {
   const payIdComponents = parsePayId(payId)
   if (!payIdComponents) {
     // Syntactically invalid PayID
     throw new Error('Invalid PayID')
   }
 
-  const basePath = options.useInsecureHttp ? `http://${payIdComponents.host}` : `https://${payIdComponents.host}`
+  const basePath = options.useInsecureHttp
+    ? `http://${payIdComponents.host}`
+    : `https://${payIdComponents.host}`
 
   const headers = {
     Accept: `application/${options.network}+json`,
-    'PayID-Version': '1.0'
+    'PayID-Version': '1.0',
   }
 
-  const response = await fetch(basePath + payIdComponents.path, {headers})
+  const response = await fetch(basePath + payIdComponents.path, { headers })
 
   if (response.ok) {
     // response.status >= 200 && response.status < 300
     const json = await response.json()
     if (options.useInsecureHttp) {
-      return Object.assign({}, json, {usedInsecureHttp: true})
+      return Object.assign({}, json, { usedInsecureHttp: true })
     }
     return json
   }
