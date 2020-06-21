@@ -1,7 +1,7 @@
 {
-  "name": "ripple-lib-starter",
-  "version": "0.0.2",
-  "description": "ripple-lib starter project",
+  "name": "payid-lib",
+  "version": "0.0.3",
+  "description": "Simple PayID utility functions",
   "files": [
     "dist/*",
     "build/*"
@@ -10,11 +10,12 @@
   "types": "dist/index.d.ts",
   "license": "ISC",
   "dependencies": {
-    "ripple-lib": "^1.6.5"
+    "@types/node-fetch": "^2.5.7",
+    "node-fetch": "^2.6.0"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/ripple/ripple-lib-starter.git"
+    "url": "git@github.com:intelliot/payid-lib.git"
   },
   "prepublish": "tsc",
   "prepublishOnly": "eslint . --ext .ts && jest",
