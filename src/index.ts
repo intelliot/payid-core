@@ -153,5 +153,7 @@ export async function resolvePayId(
     return json
   }
 
-  throw new Error(`${response.status} ${response.statusText} ${response.text()}`)
+  throw new Error(
+    `${response.status} ${response.statusText} ${response.text()}`,
+  )
 }
