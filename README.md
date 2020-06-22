@@ -15,6 +15,8 @@ $ npm install payid-lib
 
 # payid-lib API Reference
 
+- [Click here for payid-lib's full API reference including TypeScript interfaces and type aliases](https://intelliot.github.io/payid-lib/modules/_index_.html)
+
 ## Functions
 
 <dl>
