@@ -8,8 +8,8 @@ export interface PayIdComponents {
 /**
  * Parse a PayID into PayIdComponents.
  *
- * @param payId the PayID to parse
- * @returns the PayIdComponents if the PayID is syntactically valid, otherwise `undefined`
+ * @param {string} payId the PayID to parse
+ * @returns {PayIdComponents|undefined} the PayIdComponents if the PayID is syntactically valid, otherwise `undefined`
  */
 export function parsePayId(payId: string): PayIdComponents | undefined {
   // Ensure `payId` contains only printable ASCII characters
@@ -41,8 +41,8 @@ export function parsePayId(payId: string): PayIdComponents | undefined {
 /**
  * Check whether a string is syntactically a valid PayID.
  *
- * @param payId the PayID to check
- * @returns `true` if the PayID is valid, otherwise `false`
+ * @param {string} payId the PayID to check
+ * @returns {boolean} `true` if the PayID is valid, otherwise `false`
  */
 export function isValidPayId(payId: string): boolean {
   return !!parsePayId(payId)
@@ -115,10 +115,11 @@ export interface ResolvePayIdOptions {
  *
  * To retrieve an address for a particular payment network, set `options.network` to the desired PaymentNetwork.
  *
- * @param payId The PayID to resolve for one or more addresses
- * @param options Options object
- * @param options.network The network to retrieve an address for
- * @param options.useInsecureHttp If `true`, `http` will be used. Use for testing purposes only. Defaults to `false`
+ * @param {string} payId The PayID to resolve for one or more addresses
+ * @param {Object} [options] Options object
+ * @param {PaymentNetwork} [options.network] The network to retrieve an address for
+ * @param {boolean} [options.useInsecureHttp] If `true`, `http` will be used. Use for testing purposes only. Defaults to `false`
+ * @returns {Promise} Promise resolves to PaymentInformation. If `useInsecureHttp` was set, then `usedInsecureHttp: true` will be set
  */
 export async function resolvePayId(
   payId: string,

@@ -80,83 +80,92 @@
 					<h2>Functions</h2>
 				</a>
 				<dl>
-					<dt><a href="#parsePayId">parsePayId(payId)</a> ⇒</dt>
+					<dt><a href="#parsePayId">parsePayId(payId)</a> ⇒ <code>PayIdComponents</code> | <code>undefined</code></dt>
 					<dd><p>Parse a PayID into PayIdComponents.</p>
 					</dd>
-					<dt><a href="#isValidPayId">isValidPayId(payId)</a> ⇒</dt>
+					<dt><a href="#isValidPayId">isValidPayId(payId)</a> ⇒ <code>boolean</code></dt>
 					<dd><p>Check whether a string is syntactically a valid PayID.</p>
 					</dd>
-					<dt><a href="#resolvePayId">resolvePayId(payId, options)</a></dt>
+					<dt><a href="#resolvePayId">resolvePayId(payId, [options])</a> ⇒ <code>Promise</code></dt>
 					<dd><p>Retrieve one or more addresses associated with a PayID.</p>
 						<p>By default, this retrieves all of a PayID&#39;s addresses by passing the <code>payid</code> network in the header of the request.</p>
 						<p>To retrieve an address for a particular payment network, set <code>options.network</code> to the desired PaymentNetwork.</p>
 					</dd>
 				</dl>
 				<p><a name="parsePayId"></a></p>
-				<a href="#parsepayidpayid-⇒" id="parsepayidpayid-⇒" style="color: inherit; text-decoration: none;">
-					<h2>parsePayId(payId) ⇒</h2>
+				<a href="#parsepayidpayid-⇒-payidcomponents--undefined" id="parsepayidpayid-⇒-payidcomponents--undefined" style="color: inherit; text-decoration: none;">
+					<h2>parsePayId(payId) ⇒ <code>PayIdComponents</code> | <code>undefined</code></h2>
 				</a>
 				<p>Parse a PayID into PayIdComponents.</p>
-				<p><strong>Kind</strong>: global function<br><strong>Returns</strong>: the PayIdComponents if the PayID is syntactically valid, otherwise <code>undefined</code>  </p>
+				<p><strong>Kind</strong>: global function<br><strong>Returns</strong>: <code>PayIdComponents</code> | <code>undefined</code> - the PayIdComponents if the PayID is syntactically valid, otherwise <code>undefined</code>  </p>
 				<table>
 					<thead>
 						<tr>
 							<th>Param</th>
+							<th>Type</th>
 							<th>Description</th>
 						</tr>
 					</thead>
 					<tbody><tr>
 							<td>payId</td>
+							<td><code>string</code></td>
 							<td>the PayID to parse</td>
 						</tr>
 				</tbody></table>
 				<p><a name="isValidPayId"></a></p>
-				<a href="#isvalidpayidpayid-⇒" id="isvalidpayidpayid-⇒" style="color: inherit; text-decoration: none;">
-					<h2>isValidPayId(payId) ⇒</h2>
+				<a href="#isvalidpayidpayid-⇒-boolean" id="isvalidpayidpayid-⇒-boolean" style="color: inherit; text-decoration: none;">
+					<h2>isValidPayId(payId) ⇒ <code>boolean</code></h2>
 				</a>
 				<p>Check whether a string is syntactically a valid PayID.</p>
-				<p><strong>Kind</strong>: global function<br><strong>Returns</strong>: <code>true</code> if the PayID is valid, otherwise <code>false</code>  </p>
+				<p><strong>Kind</strong>: global function<br><strong>Returns</strong>: <code>boolean</code> - <code>true</code> if the PayID is valid, otherwise <code>false</code>  </p>
 				<table>
 					<thead>
 						<tr>
 							<th>Param</th>
+							<th>Type</th>
 							<th>Description</th>
 						</tr>
 					</thead>
 					<tbody><tr>
 							<td>payId</td>
+							<td><code>string</code></td>
 							<td>the PayID to check</td>
 						</tr>
 				</tbody></table>
 				<p><a name="resolvePayId"></a></p>
-				<a href="#resolvepayidpayid-options" id="resolvepayidpayid-options" style="color: inherit; text-decoration: none;">
-					<h2>resolvePayId(payId, options)</h2>
+				<a href="#resolvepayidpayid-options-⇒-promise" id="resolvepayidpayid-options-⇒-promise" style="color: inherit; text-decoration: none;">
+					<h2>resolvePayId(payId, [options]) ⇒ <code>Promise</code></h2>
 				</a>
 				<p>Retrieve one or more addresses associated with a PayID.</p>
 				<p>By default, this retrieves all of a PayID&#39;s addresses by passing the <code>payid</code> network in the header of the request.</p>
 				<p>To retrieve an address for a particular payment network, set <code>options.network</code> to the desired PaymentNetwork.</p>
-				<p><strong>Kind</strong>: global function  </p>
+				<p><strong>Kind</strong>: global function<br><strong>Returns</strong>: <code>Promise</code> - Promise resolves to PaymentInformation. If <code>useInsecureHttp</code> was set, then <code>usedInsecureHttp: true</code> will be set  </p>
 				<table>
 					<thead>
 						<tr>
 							<th>Param</th>
+							<th>Type</th>
 							<th>Description</th>
 						</tr>
 					</thead>
 					<tbody><tr>
 							<td>payId</td>
+							<td><code>string</code></td>
 							<td>The PayID to resolve for one or more addresses</td>
 						</tr>
 						<tr>
-							<td>options</td>
+							<td>[options]</td>
+							<td><code>Object</code></td>
 							<td>Options object</td>
 						</tr>
 						<tr>
-							<td>options.network</td>
+							<td>[options.network]</td>
+							<td><code>PaymentNetwork</code></td>
 							<td>The network to retrieve an address for</td>
 						</tr>
 						<tr>
-							<td>options.useInsecureHttp</td>
+							<td>[options.useInsecureHttp]</td>
+							<td><code>boolean</code></td>
 							<td>If <code>true</code>, <code>http</code> will be used. Use for testing purposes only. Defaults to <code>false</code></td>
 						</tr>
 				</tbody></table>
