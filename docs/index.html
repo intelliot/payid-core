@@ -64,23 +64,109 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#ripple-lib-starter" id="ripple-lib-starter" style="color: inherit; text-decoration: none;">
-					<h1>ripple-lib-starter</h1>
+				<a href="#payid-lib" id="payid-lib" style="color: inherit; text-decoration: none;">
+					<h1>payid-lib</h1>
 				</a>
-				<p>Simple starter project for getting started with ripple-lib and TypeScript</p>
-				<a href="#requirements" id="requirements" style="color: inherit; text-decoration: none;">
-					<h2>Requirements</h2>
+				<p>Simple <a href="https://payid.org/">PayID</a> utility functions</p>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<pre><code>$ yarn add payid-<span class="hljs-class"><span class="hljs-keyword">lib</span></span></code></pre><p>or with npm:</p>
+				<pre><code>$ npm install payid-<span class="hljs-class"><span class="hljs-keyword">lib</span></span></code></pre>
+				<a href="#payid-lib-api-reference" id="payid-lib-api-reference" style="color: inherit; text-decoration: none;">
+					<h1>payid-lib API Reference</h1>
+				</a>
+				<a href="#functions" id="functions" style="color: inherit; text-decoration: none;">
+					<h2>Functions</h2>
+				</a>
+				<dl>
+					<dt><a href="#parsePayId">parsePayId(payId)</a> ⇒</dt>
+					<dd><p>Parse a PayID into PayIdComponents.</p>
+					</dd>
+					<dt><a href="#isValidPayId">isValidPayId(payId)</a> ⇒</dt>
+					<dd><p>Check whether a string is syntactically a valid PayID.</p>
+					</dd>
+					<dt><a href="#resolvePayId">resolvePayId(payId, options)</a></dt>
+					<dd><p>Retrieve one or more addresses associated with a PayID.</p>
+						<p>By default, this retrieves all of a PayID&#39;s addresses by passing the <code>payid</code> network in the header of the request.</p>
+						<p>To retrieve an address for a particular payment network, set <code>options.network</code> to the desired PaymentNetwork.</p>
+					</dd>
+				</dl>
+				<p><a name="parsePayId"></a></p>
+				<a href="#parsepayidpayid-⇒" id="parsepayidpayid-⇒" style="color: inherit; text-decoration: none;">
+					<h2>parsePayId(payId) ⇒</h2>
+				</a>
+				<p>Parse a PayID into PayIdComponents.</p>
+				<p><strong>Kind</strong>: global function<br><strong>Returns</strong>: the PayIdComponents if the PayID is syntactically valid, otherwise <code>undefined</code>  </p>
+				<table>
+					<thead>
+						<tr>
+							<th>Param</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td>payId</td>
+							<td>the PayID to parse</td>
+						</tr>
+				</tbody></table>
+				<p><a name="isValidPayId"></a></p>
+				<a href="#isvalidpayidpayid-⇒" id="isvalidpayidpayid-⇒" style="color: inherit; text-decoration: none;">
+					<h2>isValidPayId(payId) ⇒</h2>
+				</a>
+				<p>Check whether a string is syntactically a valid PayID.</p>
+				<p><strong>Kind</strong>: global function<br><strong>Returns</strong>: <code>true</code> if the PayID is valid, otherwise <code>false</code>  </p>
+				<table>
+					<thead>
+						<tr>
+							<th>Param</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td>payId</td>
+							<td>the PayID to check</td>
+						</tr>
+				</tbody></table>
+				<p><a name="resolvePayId"></a></p>
+				<a href="#resolvepayidpayid-options" id="resolvepayidpayid-options" style="color: inherit; text-decoration: none;">
+					<h2>resolvePayId(payId, options)</h2>
+				</a>
+				<p>Retrieve one or more addresses associated with a PayID.</p>
+				<p>By default, this retrieves all of a PayID&#39;s addresses by passing the <code>payid</code> network in the header of the request.</p>
+				<p>To retrieve an address for a particular payment network, set <code>options.network</code> to the desired PaymentNetwork.</p>
+				<p><strong>Kind</strong>: global function  </p>
+				<table>
+					<thead>
+						<tr>
+							<th>Param</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td>payId</td>
+							<td>The PayID to resolve for one or more addresses</td>
+						</tr>
+						<tr>
+							<td>options</td>
+							<td>Options object</td>
+						</tr>
+						<tr>
+							<td>options.network</td>
+							<td>The network to retrieve an address for</td>
+						</tr>
+						<tr>
+							<td>options.useInsecureHttp</td>
+							<td>If <code>true</code>, <code>http</code> will be used. Use for testing purposes only. Defaults to <code>false</code></td>
+						</tr>
+				</tbody></table>
+				<a href="#development-environment" id="development-environment" style="color: inherit; text-decoration: none;">
+					<h1>Development Environment</h1>
 				</a>
 				<ul>
 					<li>Node.js LTS</li>
 					<li>Yarn</li>
-				</ul>
-				<a href="#features" id="features" style="color: inherit; text-decoration: none;">
-					<h2>Features</h2>
-				</a>
-				<ul>
 					<li>TypeScript</li>
-					<li>ripple-lib</li>
 					<li>Linting with eslint</li>
 					<li>Testing with Jest</li>
 					<li>Code coverage</li>
@@ -103,6 +189,10 @@
 					</li>
 					<li>coverage<ul>
 							<li>Collects code coverage information and outputs to <code>./coverage</code></li>
+						</ul>
+					</li>
+					<li>docs<ul>
+							<li>Generate README.md (from README.hbs and jsdoc2md) and <code>./docs</code> (with <code>typedoc</code>)</li>
 						</ul>
 					</li>
 				</ul>

@@ -74,7 +74,7 @@ To retrieve an address for a particular payment network, set `options.network` t
 | options.useInsecureHttp | If `true`, `http` will be used. Use for testing purposes only. Defaults to `false` |
 
 
-## Development Environment
+# Development Environment
 
 * Node.js LTS
 * Yarn
@@ -94,4 +94,4 @@ To retrieve an address for a particular payment network, set `options.network` t
 * coverage
   * Collects code coverage information and outputs to `./coverage`
 * docs
-  * Generate README.md (from README.hbs and jsdoc2md)
+  * Generate README.md (from README.hbs and jsdoc2md) and `./docs` (with `typedoc`)
