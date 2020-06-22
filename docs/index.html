@@ -142,7 +142,10 @@
 				<p>Retrieve one or more addresses associated with a PayID.</p>
 				<p>By default, this retrieves all of a PayID&#39;s addresses by passing the <code>payid</code> network in the header of the request.</p>
 				<p>To retrieve an address for a particular payment network, set <code>options.network</code> to the desired PaymentNetwork.</p>
-				<p><strong>Kind</strong>: global function<br><strong>Returns</strong>: <code>Promise</code> - Promise resolves to PaymentInformation. If <code>useInsecureHttp</code> was set, then <code>usedInsecureHttp: true</code> will be set  </p>
+				<p><strong>Kind</strong>: global function<br><strong>Returns</strong>: <code>Promise</code> - Promise resolves to PaymentInformation. If <code>useInsecureHttp</code> was set, then <code>usedInsecureHttp: true</code> will be set<br><strong>Throws</strong>:</p>
+				<ul>
+					<li><code>Error</code> &#39;Invalid PayID&#39; if <code>payId</code> is syntactically invalid;<pre><code>          <span class="hljs-string">`<span class="hljs-subst">${status}</span> <span class="hljs-subst">${statusText}</span> <span class="hljs-subst">${text}</span>`</span> <span class="hljs-keyword">if</span> the response is not successful (status in the range <span class="hljs-number">200</span><span class="hljs-number">-299</span>)</code></pre></li>
+				</ul>
 				<table>
 					<thead>
 						<tr>

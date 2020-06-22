@@ -120,6 +120,8 @@ export interface ResolvePayIdOptions {
  * @param {PaymentNetwork} [options.network] The network to retrieve an address for
  * @param {boolean} [options.useInsecureHttp] If `true`, `http` will be used. Use for testing purposes only. Defaults to `false`
  * @returns {Promise} Promise resolves to PaymentInformation. If `useInsecureHttp` was set, then `usedInsecureHttp: true` will be set
+ * @throws {Error} 'Invalid PayID' if `payId` is syntactically invalid;
+ *                 `${status} ${statusText} ${text}` if the response is not successful (status in the range 200-299)
  */
 export async function resolvePayId(
   payId: string,
@@ -151,5 +153,5 @@ export async function resolvePayId(
     return json
   }
 
-  throw new Error(response.statusText)
+  throw new Error(`${response.status} ${response.statusText} ${response.text()}`)
 }

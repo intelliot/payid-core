@@ -68,6 +68,11 @@ To retrieve an address for a particular payment network, set `options.network` t
 
 **Kind**: global function  
 **Returns**: <code>Promise</code> - Promise resolves to PaymentInformation. If `useInsecureHttp` was set, then `usedInsecureHttp: true` will be set  
+**Throws**:
+
+- <code>Error</code> 'Invalid PayID' if `payId` is syntactically invalid;
+                `${status} ${statusText} ${text}` if the response is not successful (status in the range 200-299)
+
 
 | Param | Type | Description |
 | --- | --- | --- |
