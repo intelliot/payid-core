@@ -24,7 +24,7 @@
     "lint": "eslint . --ext .ts",
     "test": "jest",
     "coverage": "jest --collect-coverage",
-    "docs": "tsc && jsdoc2md --template README.hbs --files dist/index.js > README.md && typedoc src/index.ts"
+    "docs": "tsc && jsdoc2md --template README.hbs --files dist/index.js > README.md && typedoc src/index.ts && cp .nojekyll docs"
   },
   "devDependencies": {
     "@types/jest": "^25.1.0",

@@ -1,0 +1,6 @@
+This file instructs GitHub Pages to bypass Jekyll processing.
+This is necessary only because the site uses files that start
+with underscores and Jekyll considers these to be special
+resources and does not copy them to the final site.
+
+https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/
