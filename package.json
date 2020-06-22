@@ -39,6 +39,7 @@
     "jsdoc-to-markdown": "^6.0.1",
     "prettier": "^1.19.1",
     "ts-jest": "^25.3.0",
+    "typedoc": "^0.17.7",
     "typescript": "^3.7.4"
   },
   "engines": {
