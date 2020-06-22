@@ -1,6 +1,6 @@
 {
   "name": "payid-lib",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Simple PayID utility functions",
   "files": [
     "dist/*",
@@ -23,7 +23,8 @@
     "compile": "tsc",
     "lint": "eslint . --ext .ts",
     "test": "jest",
-    "coverage": "jest --collect-coverage"
+    "coverage": "jest --collect-coverage",
+    "docgen": "typedoc src"
   },
   "devDependencies": {
     "@types/jest": "^25.1.0",
@@ -37,6 +38,7 @@
     "jest": "^25.2.4",
     "prettier": "^1.19.1",
     "ts-jest": "^25.3.0",
+    "typedoc": "^0.17.7",
     "typescript": "^3.7.4"
   },
   "engines": {
