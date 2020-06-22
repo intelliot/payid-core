@@ -24,7 +24,7 @@
     "lint": "eslint . --ext .ts",
     "test": "jest",
     "coverage": "jest --collect-coverage",
-    "docgen": "typedoc src"
+    "docs": "tsc && jsdoc2md --template README.hbs --files dist/index.js > README.md"
   },
   "devDependencies": {
     "@types/jest": "^25.1.0",
@@ -36,9 +36,9 @@
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-prettier": "^3.1.2",
     "jest": "^25.2.4",
+    "jsdoc-to-markdown": "^6.0.1",
     "prettier": "^1.19.1",
     "ts-jest": "^25.3.0",
-    "typedoc": "^0.17.7",
     "typescript": "^3.7.4"
   },
   "engines": {
