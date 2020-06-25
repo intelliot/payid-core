@@ -38,8 +38,8 @@ $ npm install payid-core
 ## parsePayId(payId) ⇒ <code>PayIdComponents</code> \| <code>undefined</code>
 Parse a PayID into PayIdComponents.
 
-**Kind**: global function
-**Returns**: <code>PayIdComponents</code> \| <code>undefined</code> - the PayIdComponents if the PayID is syntactically valid, otherwise `undefined`
+**Kind**: global function  
+**Returns**: <code>PayIdComponents</code> \| <code>undefined</code> - the PayIdComponents if the PayID is syntactically valid, otherwise `undefined`  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -50,8 +50,8 @@ Parse a PayID into PayIdComponents.
 ## isValidPayId(payId) ⇒ <code>boolean</code>
 Check whether a string is syntactically a valid PayID.
 
-**Kind**: global function
-**Returns**: <code>boolean</code> - `true` if the PayID is valid, otherwise `false`
+**Kind**: global function  
+**Returns**: <code>boolean</code> - `true` if the PayID is valid, otherwise `false`  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -66,8 +66,8 @@ By default, this retrieves all of a PayID's addresses by passing the `payid` net
 
 To retrieve an address for a particular payment network, set `options.network` to the desired PaymentNetwork.
 
-**Kind**: global function
-**Returns**: <code>Promise</code> - Promise resolves to PaymentInformation. If `useInsecureHttp` was set, then `usedInsecureHttp: true` will be set
+**Kind**: global function  
+**Returns**: <code>Promise</code> - Promise resolves to PaymentInformation. If `useInsecureHttp` was set, then `usedInsecureHttp: true` will be set  
 **Throws**:
 
 - <code>Error</code> 'Invalid PayID' if `payId` is syntactically invalid;
